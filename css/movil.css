@@ -1,0 +1,11 @@
+@layer movil {
+  @media (max-width: 768px) {
+    .row {
+      flex-direction: column;
+    }
+    .col-6 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}

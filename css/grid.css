@@ -1,0 +1,23 @@
+@layer grid, movil;
+@import "movil.css" layer(movil);
+
+@layer grid {
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 0 auto;
+    min-height: 100dvh;
+    min-height: 100vh;
+  }
+
+  .row {
+    display: flex;
+    gap: var(--gap);
+  }
+
+  .col-6 {
+    flex: 0 0 calc(50% - var(--gap));
+    max-width: calc(50% - var(--gap));
+  }
+}

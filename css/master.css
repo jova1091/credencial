@@ -1,0 +1,13 @@
+@layer reset, root, grid;
+
+@import "reset.css" layer(reset);
+@import "grid.css" layer(grid);
+@import "root.css" layer(root);
+
+h1 {
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
