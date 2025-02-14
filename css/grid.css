@@ -2,22 +2,39 @@
 @import "movil.css" layer(movil);
 
 @layer grid {
-  main {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin: 0 auto;
-    min-height: 100dvh;
-    min-height: 100vh;
+  section {
+    display: block;
+
+    &.bgd-primary {
+      background-color: var(--color-primary);
+    }
+
+    &.bgd-secondary {
+      background-color: var(--color-secondary);
+    }
+
+    &.bgd-tertiary {
+      background-color: var(--color-tertiary);
+    }
+
+    &.bgd-quaternary {
+      background-color: var(--color-quaternary);
+    }
   }
 
   .row {
+    width: 100%;
     display: flex;
-    gap: var(--gap);
+    flex-wrap: wrap;
   }
 
   .col-6 {
     flex: 0 0 calc(50% - var(--gap));
     max-width: calc(50% - var(--gap));
+  }
+
+  .col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
   }
 }

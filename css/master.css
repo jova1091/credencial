@@ -1,13 +1,25 @@
-@layer reset, root, grid;
+@layer reset, root, grid, spacer, text, utilities;
 
 @import "reset.css" layer(reset);
-@import "grid.css" layer(grid);
-@import "root.css" layer(root);
+@import "root.css";
+@import "grid.css";
+@import "spacers.css";
+@import "text.css";
+@import "utilities.css";
+@import "accordion.css" layer(accordion);
 
-h1 {
-  font-family: var(--font-sans);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size);
-  line-height: 1.2;
-  margin-bottom: 1rem;
+main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0 auto;
+  min-height: 100dvh;
+  min-height: 100vh;
+  padding: 0 var(--gap);
+  color: var(--color-primary);
+}
+
+h2,
+h3 {
+  font-weight: var(--font-weight-normal);
 }

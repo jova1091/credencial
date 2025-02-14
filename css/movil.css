@@ -1,4 +1,17 @@
-@layer movil {
+@layer movil-md {
+  @media (max-width: 1024px) {
+    .col-md-6 {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+    .col-md-8 {
+      flex: 0 0 calc(calc(var(--column-size) * 8) - var(--gap));
+      max-width: calc(calc(var(--column-size) * 8) - var(--gap));
+    }
+  }
+}
+
+@layer movil-sm {
   @media (max-width: 768px) {
     .row {
       flex-direction: column;

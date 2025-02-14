@@ -2,9 +2,11 @@
 
 @layer root {
   :root {
+    --columns: 12;
     --gap: 1rem;
+    --column-size: calc(100% / var(--columns));
 
-    --font-sans: "Robotes", sans-serif;
+    --font-sans: "Work Sans", sans-serif;
     --font-serif: "Merriweather", serif;
     --font-mono: "Space Mono", monospace;
 
@@ -18,6 +20,11 @@
     --font-weight-extrabold: 800;
     --font-weight-black: 900;
 
-    --font-size: clamp(1rem, 0.436rem + 3.008vw, 3.143rem);
+    --font-size: 18px;
+
+    --color-primary: #000000;
+    --color-secondary: #f5911e;
+    --color-tertiary: #1c937c;
+    --color-quaternary: #f0f0f0;
   }
 }
