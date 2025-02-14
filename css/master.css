@@ -23,3 +23,48 @@ h2,
 h3 {
   font-weight: var(--font-weight-normal);
 }
+
+.convenciones {
+  display: flex;
+  gap: var(--gap);
+  max-width: 100%;
+
+  .convencion {
+    display: flex;
+    gap: var(--gap);
+    align-items: center;
+    border-right: 1px solid var(--color-primary);
+    padding-right: var(--gap);
+    line-height: 1;
+
+    span {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+    }
+
+    &.obl {
+      span {
+        background-color: var(--color-secondary);
+      }
+    }
+
+    &.ele {
+      span {
+        background-color: var(--color-tertiary);
+      }
+    }
+
+    &.ca {
+      span {
+        background-color: #000000;
+        color: #ffffff;
+        border-radius: 0;
+
+        svg {
+          transform: rotate(90deg);
+        }
+      }
+    }
+  }
+}
