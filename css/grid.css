@@ -28,9 +28,19 @@
     flex-wrap: wrap;
   }
 
+  .col-5 {
+    flex: 0 0 calc(calc(var(--column-size) * 5) - var(--gap));
+    max-width: calc(calc(var(--column-size) * 5) - var(--gap));
+  }
+
   .col-6 {
     flex: 0 0 calc(50% - var(--gap));
     max-width: calc(50% - var(--gap));
+  }
+
+  .col-7 {
+    flex: 0 0 calc(calc(var(--column-size) * 7) - var(--gap));
+    max-width: calc(calc(var(--column-size) * 7) - var(--gap));
   }
 
   .col-12 {

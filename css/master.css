@@ -68,3 +68,12 @@ h3 {
     }
   }
 }
+
+@layer mobile {
+  @media (max-width: 425px) {
+    .convenciones {
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+  }
+}
