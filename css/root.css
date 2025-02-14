@@ -1,4 +1,4 @@
-@import "css/font.css" layer(font);
+@import "font.css" layer(font);
 
 @layer root {
   :root {
