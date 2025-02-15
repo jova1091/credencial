@@ -104,7 +104,13 @@
         }
 
         span {
-          background-color: var(--color-secondary);
+          &.obl {
+            background-color: var(--color-secondary);
+          }
+
+          &.ele {
+            background-color: var(--color-tertiary);
+          }
         }
       }
 
