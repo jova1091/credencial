@@ -1,5 +1,5 @@
-@layer grid, movil;
-@import "movil.css" layer(movil);
+@layer grid, gridMovil;
+@import "grid-movil.css" layer(gridMovil);
 
 @layer grid {
   section {
@@ -28,6 +28,11 @@
     flex-wrap: wrap;
   }
 
+  .col-4 {
+    flex: 0 0 calc(calc(var(--column-size) * 4) - var(--gap));
+    max-width: calc(calc(var(--column-size) * 4) - var(--gap));
+  }
+
   .col-5 {
     flex: 0 0 calc(calc(var(--column-size) * 5) - var(--gap));
     max-width: calc(calc(var(--column-size) * 5) - var(--gap));
@@ -41,6 +46,11 @@
   .col-7 {
     flex: 0 0 calc(calc(var(--column-size) * 7) - var(--gap));
     max-width: calc(calc(var(--column-size) * 7) - var(--gap));
+  }
+
+  .col-8 {
+    flex: 0 0 calc(calc(var(--column-size) * 8) - var(--gap));
+    max-width: calc(calc(var(--column-size) * 8) - var(--gap));
   }
 
   .col-12 {

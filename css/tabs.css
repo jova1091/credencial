@@ -1,0 +1,76 @@
+.tabs {
+  .tab-labels {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  label {
+    display: flex;
+    gap: var(--gap);
+    min-height: 100px;
+    justify-content: space-between;
+
+    .number {
+      min-width: 40px;
+      max-width: 40px;
+      background-color: var(--color-secondary);
+      color: var(--color-primary);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-weight: var(--font-weight-bold);
+    }
+
+    p {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      span {
+        font-size: calc(var(--font-size) + 4px);
+        &.ca {
+          background-color: #000000;
+          color: #ffffff;
+          width: 15px;
+          height: 15px;
+          visibility: hidden;
+
+          svg {
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+  }
+
+  .tab-content {
+    display: none;
+  }
+}
+
+/* Show tab content when corresponding radio button is checked */
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3,
+#tab4:checked ~ #content4 {
+  display: block;
+}
+
+#tab1:checked ~ .tab-labels label[for="tab1"] .ca,
+#tab2:checked ~ .tab-labels label[for="tab2"] .ca,
+#tab3:checked ~ .tab-labels label[for="tab3"] .ca,
+#tab4:checked ~ .tab-labels label[for="tab4"] .ca {
+  visibility: visible;
+}

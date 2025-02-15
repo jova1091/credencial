@@ -1,4 +1,4 @@
-@layer reset, root, grid, spacer, text, utilities;
+@layer reset, root, grid, spacer, text, utilities, accordion, tabs, master, mobile;
 
 @import "reset.css" layer(reset);
 @import "root.css";
@@ -9,61 +9,136 @@
 @import "accordion.css" layer(accordion);
 @import "tabs.css" layer(tabs);
 
-main {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  margin: 0 auto;
-  min-height: 100dvh;
-  min-height: 100vh;
-  padding: 0 var(--gap);
-  color: var(--color-primary);
-}
+@layer master {
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 0 auto;
+    min-height: 100dvh;
+    min-height: 100vh;
+    padding: 0 var(--gap);
+    color: var(--color-primary);
+  }
 
-h2,
-h3 {
-  font-weight: var(--font-weight-normal);
-}
+  h2,
+  h3 {
+    font-weight: var(--font-weight-normal);
+  }
 
-.convenciones {
-  display: flex;
-  gap: var(--gap);
-  max-width: 100%;
-
-  .convencion {
+  .convenciones {
     display: flex;
     gap: var(--gap);
-    align-items: center;
-    border-right: 1px solid var(--color-primary);
-    padding-right: var(--gap);
-    line-height: 1;
+    max-width: 100%;
 
-    span {
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-    }
+    .convencion {
+      display: flex;
+      gap: var(--gap);
+      align-items: center;
+      border-right: 1px solid var(--color-primary);
+      padding-right: var(--gap);
+      line-height: 1;
 
-    &.obl {
-      span {
-        background-color: var(--color-secondary);
+      &::before {
+        content: "";
+        display: block;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+      }
+
+      &.obl {
+        &::before {
+          background-color: var(--color-secondary);
+        }
+      }
+
+      &.ele {
+        &::before {
+          background-color: var(--color-tertiary);
+        }
+      }
+
+      &.ca {
+        &::before {
+          display: none;
+        }
+
+        span {
+          background-color: #000000;
+          color: #ffffff;
+          width: 15px;
+          height: 15px;
+
+          svg {
+            transform: rotate(90deg);
+          }
+        }
       }
     }
+  }
 
-    &.ele {
-      span {
-        background-color: var(--color-tertiary);
+  .metadata {
+    display: flex;
+
+    .metadata-item {
+      display: flex;
+      flex-direction: column;
+      padding-right: var(--gap);
+      padding-left: var(--gap);
+      justify-content: center;
+      border-right: 1px solid var(--color-primary);
+
+      &:last-child {
+        border-right: none;
       }
-    }
 
-    &.ca {
-      span {
-        background-color: #000000;
-        color: #ffffff;
-        border-radius: 0;
+      .credits {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
-        svg {
-          transform: rotate(90deg);
+        h2 {
+          font-weight: var(--font-weight-bold);
+        }
+
+        span {
+          background-color: var(--color-secondary);
+        }
+      }
+
+      &.obl {
+        div {
+          display: flex;
+          align-items: center;
+
+          &.color::before {
+            content: "";
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: var(--gap);
+            background-color: var(--color-secondary);
+          }
+        }
+      }
+
+      &.ele {
+        div {
+          display: flex;
+          align-items: center;
+
+          &.color::before {
+            content: "";
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: var(--gap);
+            background-color: var(--color-tertiary);
+          }
         }
       }
     }
@@ -75,6 +150,38 @@ h3 {
     .convenciones {
       flex-direction: column;
       flex-wrap: wrap;
+    }
+
+    .metadata {
+      flex-direction: column;
+
+      .metadata-item {
+        border-right: 0;
+        border-bottom: 1px solid var(--color-primary);
+        padding-bottom: var(--gap);
+        padding-top: var(--gap);
+        text-align: center;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .credits {
+          span {
+            width: 100%;
+            background-color: var(--color-secondary);
+          }
+        }
+
+        &.obl,
+        &.ele {
+          div {
+            &.color {
+              justify-content: center;
+            }
+          }
+        }
+      }
     }
   }
 }
