@@ -15,6 +15,22 @@
     justify-content: space-between;
     cursor: pointer;
 
+    &::before {
+      content: "";
+      background-color: var(--color-primary);
+      position: absolute;
+      width: 0px;
+      height: 100%;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      -webkit-transition: all 1s ease-in-out;
+      -moz-transition: all 1s ease-in-out;
+      -o-transition: all 1s ease-in-out;
+      transition: all 1s ease-in-out;
+    }
+
     .number {
       min-width: 40px;
       max-width: 40px;
@@ -48,15 +64,20 @@
       justify-content: space-between;
       text-align: center;
       border-left: 1px solid #ffffff;
+      min-width: 30px;
 
       span {
         font-size: calc(var(--font-size) + 4px);
         &.ca {
           background-color: #000000;
           color: #ffffff;
-          width: 30px;
+          width: 0px;
           height: 30px;
           visibility: hidden;
+          -webkit-transition: all 1s ease-in-out;
+          -moz-transition: all 1s ease-in-out;
+          -o-transition: all 1s ease-in-out;
+          transition: all 1s ease-in-out;
 
           svg {
             transform: rotate(90deg);
@@ -83,8 +104,11 @@
 #tab2:checked ~ .tab-labels label[for="tab2"],
 #tab3:checked ~ .tab-labels label[for="tab3"],
 #tab4:checked ~ .tab-labels label[for="tab4"] {
-  background-color: var(--color-primary);
   color: #ffffff;
+
+  &::before {
+    width: 100%;
+  }
 }
 
 #tab1:checked ~ .tab-labels label[for="tab1"] .ca,
@@ -93,5 +117,5 @@
 #tab4:checked ~ .tab-labels label[for="tab4"] .ca {
   visibility: visible;
   border-bottom: 1px solid #fff;
-  transition: ease-in-out;
+  width: 30px;
 }
