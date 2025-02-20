@@ -4,8 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy"
-    content="script-src 'self' 'unsafe-eval' 'unsafe-inline'; object-src 'self'; style-src 'self' 'unsafe-inline'; media-src *">
   <title>Credencial</title>
 
   <link rel="stylesheet" href="css/master.css">
@@ -45,17 +43,12 @@
           <section class="row m-y-3">
             <div class="col-6 m-b-3">
               <h4>Credencial en:</h4>
-              <h1 class="decored m-b-0 p-b-1">Conservación de arte y Patrimonio cultural</h1>
-              <h5 class="decored">Número de créditos: <span>12</span></h5>
+              <h1 id="credencialTitulo" class="decored m-b-0 p-b-1"></h1>
+              <h5 class="decored">Número de créditos: <span id="credencialCreditos"></span></h5>
             </div>
             <div class="col-6">
               <h3 class="lined">¿Qué lograrás con la credencial?</h3>
-              <p>Formular estrategias y planes de conservación de bienes artísticos y culturales empleando los
-                principios, técnicas,
-                metodologías y estándares propuestos por diversas instituciones nacionales e internacionales como el
-                Ministerio de
-                Cultura de Colombia, ICCROM e ICOM.
-              </p>
+              <p id="credencialLogro"></p>
               <div class="m-y-3">
                 <details name="accordion-group" class="m-b-3">
                   <summary>
@@ -68,15 +61,7 @@
                     </span>
                   </summary>
                   <div class="content p-y-2">
-                    <ul>
-                      <li>En América Latina no existen programas de conservación preventiva, lo que si ocurre en Europa.
-                      </li>
-                      <li>Aumento de la participación de las industrias culturales en la economía nacional.</li>
-                      <li>Se requiere una visión integral de la conservación del patrimonio, desde varias profesiones.
-                      </li>
-                      <li>Es necesario avanzar en la aplicación de normativas emanadas por ICCROM, ICOM y el Ministerio
-                        de Cultura.</li>
-                    </ul>
+                    <ul id="credencialJustificacion"></ul>
                   </div>
                 </details>
                 <details name="accordion-group" class="m-b-2">
@@ -90,10 +75,7 @@
                     </span>
                   </summary>
                   <div class="content p-y-2">
-                    <p class="m-b-2">En el último curso de la credencial (Gestión de riesgos) se construye un Proyecto
-                      Integrador, en el que se propone un <b>“Plan de Conservación”</b>. Cada uno de los cursos que
-                      componen la credencial aporta herramientas conceptuales y prácticas para su desarrollo. Más
-                      adelante se describe el aporte de cada una.</p>
+                    <p id="credencialCriterios" class="m-b-2"></p>
                   </div>
                 </details>
               </div>
@@ -131,73 +113,8 @@
             </div>
           </section>
           <section class="row tabs m-y-3">
-            <input type="radio" id="tab1" name="tabs" checked>
-            <input type="radio" id="tab2" name="tabs">
-            <input type="radio" id="tab3" name="tabs">
-            <input type="radio" id="tab4" name="tabs">
 
-            <div class="tab-labels col-4 p-r-3 m-b-3">
-              <label for="tab1" class="border">
-                <h5 class="number obl m-0">1</h5>
-                <p>
-                  Introducción al Patrimonio
-                </p>
-                <div class="actions">
-                  <span class="ca">
-                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false"
-                      fill="currentColor" aria-hidden="true" viewBox="0 0 24 24" data-testid="KeyboardArrowDownIcon">
-                      <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"></path>
-                    </svg>
-                  </span>
-                  <span>+</span>
-                </div>
-              </label>
-              <label for="tab2" class="border">
-                <h5 class="number obl m-0">2</h5>
-                <p>
-                  Taller de gestión de colecciones
-                </p>
-                <div class="actions">
-                  <span class="ca">
-                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false"
-                      fill="currentColor" aria-hidden="true" viewBox="0 0 24 24" data-testid="KeyboardArrowDownIcon">
-                      <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"></path>
-                    </svg>
-                  </span>
-                  <span>+</span>
-                </div>
-              </label>
-              <label for="tab3" class="border">
-                <h5 class="number obl m-0">3</h5>
-                <p>
-                  Conservación preventiva de colecciones
-                </p>
-                <div class="actions">
-                  <span class="ca">
-                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false"
-                      fill="currentColor" aria-hidden="true" viewBox="0 0 24 24" data-testid="KeyboardArrowDownIcon">
-                      <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"></path>
-                    </svg>
-                  </span>
-                  <span>+</span>
-                </div>
-              </label>
-              <label for="tab4" class="border">
-                <h5 class="number obl m-0">4</h5>
-                <p>
-                  Gestión de riesgos
-                </p>
-                <div class="actions">
-                  <span class="ca">
-                    <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false"
-                      fill="currentColor" aria-hidden="true" viewBox="0 0 24 24" data-testid="KeyboardArrowDownIcon">
-                      <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"></path>
-                    </svg>
-                  </span>
-                  <span>+</span>
-                </div>
-              </label>
-            </div>
+            <div id="labels" class="tab-labels col-4 p-r-3 m-b-3"></div>
 
             <div id="content1" class="col-8 tab-content">
               <h1 class="lined m-b-2">Introducción al patrimonio</h1>
@@ -534,6 +451,7 @@
   </main>
 
   <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1/lite-youtube.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js"></script>
   <script src="js/master.js"></script>
 </body>
 
