@@ -8,9 +8,10 @@
     z-index: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
     background-color: #ffffff;
-    transition: all 3s ease-out;
+    transition: top 3s ease-out;
+    padding-top: 25%;
 
     .signals {
       display: flex;
