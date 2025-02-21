@@ -1,4 +1,4 @@
-@layer reset, root, grid, spacer, text, utilities, accordion, tabs, master, mobile;
+@layer reset, root, grid, spacer, text, utilities, accordion, tabs, master, mobile, loader;
 
 @import "reset.css" layer(reset);
 @import "root.css";
@@ -8,6 +8,7 @@
 @import "utilities.css";
 @import "accordion.css" layer(accordion);
 @import "tabs.css" layer(tabs);
+@import "loader.css";
 
 @layer master {
   main {

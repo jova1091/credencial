@@ -6,6 +6,7 @@ const cursos =
 
 window.addEventListener("DOMContentLoaded", init);
 
+const loaderElem = document.querySelector(".loader");
 const credencialTituloElem = document.querySelector("#credencialTitulo");
 const credencialCreditosElem = document.querySelector("#credencialCreditos");
 const credencialLogroElem = document.querySelector("#credencialLogro");
@@ -42,6 +43,7 @@ function getInfoCursos(dataCursos) {
 function printInfo(credencial, cursos) {
   let radios = "";
   let labels = "";
+  let contents = "";
 
   if (credencial != null || cursos != null) {
     credencialTituloElem.innerHTML = credencial[0].Nombre;
@@ -51,15 +53,79 @@ function printInfo(credencial, cursos) {
     credencialCriterios.innerHTML = credencial[0].Criterios;
 
     for (let index = 0; index < credencial[0].Cursos; index++) {
-      const element = cursos[index];
       radios += createRadio(index);
       labels += createLabel(index, cursos[index]);
-      console.log("Curso: " + element.Nombre);
+      contents += createContent(index, cursos[index]);
     }
+
     insertBefore(labelsElem, radios);
+    insertAfter(labelsElem, contents);
     labelsElem.innerHTML = labels;
     checkradio();
+    hideLoader();
   }
+}
+
+function createContent(Id, curso) {
+  let contentId = Id + 1;
+  let content = `
+    <div id="content${contentId}" class="col-8 tab-content">
+              <h1 class="lined m-b-2">${curso.Nombre}</h1>
+              <h2 class="icon left m-b-2"><img src="img/icons/icon-obtiene.png" alt=""> Descripción</h2>
+              <p class="m-b-2">${curso.Descripcion}</p>
+              <div class="metadata">
+                <div class="metadata-item ">
+                  <div class="credits border">
+                    <h2 class="p-t-1">${curso.Creditos}</h2>
+                    <span class="obl p-x-1">Créditos</span>
+                  </div>
+                </div>
+                <div class="metadata-item obl">
+                  <p class="m-b-1"><b>Curso obligatorio o electivo</b></p>
+                  <div class="color">
+                    ${curso.Requisito}
+                  </div>
+                </div>
+                <div class="metadata-item">
+                  <p class="m-b-1"><b>Facultad(es)</b></p>
+                  <div>${curso.Facultad}</div>
+                </div>
+              </div>
+              <div class="m-y-3">
+                <details name="accordion-group-2" class="m-b-3">
+                  <summary>
+                    <h3>Resultados de aprendizaje</h3>
+                    <span class="arrow">
+                      <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false"
+                        fill="currentColor" aria-hidden="true" viewBox="0 0 24 24" data-testid="KeyboardArrowDownIcon">
+                        <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"></path>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="content p-y-2">
+                    <ul>
+                      ${createLi(curso.Objetivos)}
+                    </ul>
+                  </div>
+                </details>
+                <details name="accordion-group-2" class="m-b-2">
+                  <summary>
+                    <h3>Aportes al proyecto integrador</h3>
+                    <span class="arrow">
+                      <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false"
+                        fill="currentColor" aria-hidden="true" viewBox="0 0 24 24" data-testid="KeyboardArrowDownIcon">
+                        <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"></path>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="content p-y-2">
+                    <p class="m-b-2">${curso.Aportes}</p>
+                  </div>
+                </details>
+              </div>
+            </div>
+  `;
+  return content;
 }
 
 function createLabel(Id, curso) {
@@ -92,6 +158,10 @@ function insertBefore(el, htmlString) {
   el.insertAdjacentHTML("beforebegin", htmlString);
 }
 
+function insertAfter(el, htmlString) {
+  el.insertAdjacentHTML("afterEnd", htmlString);
+}
+
 function createRadio(Id) {
   let radioId = Id + 1;
   let radioElement = `<input type="radio" id="tab${radioId}" name="tabs">`;
@@ -106,4 +176,12 @@ function createLi(data) {
     liElements += `<li>${string}</li>`;
   });
   return liElements;
+}
+
+function hideLoader() {
+  loaderElem.style.top = "-100vw";
+  setTimeout(() => {
+    loaderElem.style.zIndex = 0;
+    loaderElem.style.display = "none";
+  }, 800);
 }
