@@ -79,10 +79,10 @@ function createContent(Id, curso) {
                 <div class="metadata-item ">
                   <div class="credits border">
                     <h2 class="p-t-1">${curso.Creditos}</h2>
-                    <span class="obl p-x-1">Créditos</span>
+                    <span class="${curso.Requisito} p-x-1">Créditos</span>
                   </div>
                 </div>
-                <div class="metadata-item obl">
+                <div class="metadata-item ${curso.Requisito}">
                   <p class="m-b-1"><b>Curso obligatorio o electivo</b></p>
                   <div class="color">
                     ${curso.Requisito}
@@ -148,7 +148,7 @@ function createLabel(Id, curso) {
   let labelId = Id + 1;
   let labelElement = `
     <label for="tab${labelId}" class="border">
-                <h5 class="number obl m-0">${curso.Orden}</h5>
+                <h5 class="number ${curso.Requisito} m-0">${curso.Orden}</h5>
                 <p>${curso.Nombre}</p>
                 <div class="actions">
                   <span class="ca">
