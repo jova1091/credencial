@@ -68,8 +68,10 @@
         span {
           background-color: #000000;
           color: #ffffff;
-          width: 15px;
-          height: 15px;
+          min-width: 15px;
+          min-height: 15px;
+          max-width: 15px;
+          max-height: 15px;
 
           svg {
             transform: rotate(90deg);
@@ -153,6 +155,13 @@
 }
 
 @layer mobile {
+  @media (max-width: 768px) {
+    .convenciones {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
   @media (max-width: 425px) {
     .convenciones {
       flex-direction: column;
