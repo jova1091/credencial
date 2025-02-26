@@ -48,13 +48,13 @@
         border-radius: 50%;
       }
 
-      &.obl {
+      &.Obligatorio {
         &::before {
           background-color: var(--color-secondary);
         }
       }
 
-      &.ele {
+      &.Electivo {
         &::before {
           background-color: var(--color-tertiary);
         }
@@ -105,17 +105,17 @@
         }
 
         span {
-          &.obl {
+          &.Obligatorio {
             background-color: var(--color-secondary);
           }
 
-          &.ele {
+          &.Electivo {
             background-color: var(--color-tertiary);
           }
         }
       }
 
-      &.obl {
+      &.Obligatorio {
         div {
           display: flex;
           align-items: center;
@@ -132,7 +132,7 @@
         }
       }
 
-      &.ele {
+      &.Electivo {
         div {
           display: flex;
           align-items: center;
@@ -180,8 +180,8 @@
           }
         }
 
-        &.obl,
-        &.ele {
+        &.Obligatorio,
+        &.Electivo {
           div {
             &.color {
               justify-content: center;

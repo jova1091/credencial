@@ -73,14 +73,16 @@ function createContent(Id, curso) {
               <h1 class="lined m-b-2">${curso.Nombre}</h1>
               <h2 class="icon left m-b-2"><img src="img/icons/icon-obtiene.png" alt=""> Descripción</h2>
               <p class="m-b-2">${curso.Descripcion}</p>
+              <p ><strong>Nivel: </strong>${curso.Nivel}</p>
+              <p class="m-b-2"><strong>Prerequisito: </strong>${curso.Prerequisito}</p>
               <div class="metadata">
                 <div class="metadata-item ">
                   <div class="credits border">
                     <h2 class="p-t-1">${curso.Creditos}</h2>
-                    <span class="obl p-x-1">Créditos</span>
+                    <span class="${curso.Requisito} p-x-1">Créditos</span>
                   </div>
                 </div>
-                <div class="metadata-item obl">
+                <div class="metadata-item ${curso.Requisito}">
                   <p class="m-b-1"><b>Curso obligatorio o electivo</b></p>
                   <div class="color">
                     ${curso.Requisito}
@@ -108,6 +110,20 @@ function createContent(Id, curso) {
                     </ul>
                   </div>
                 </details>
+                <details name="accordion-group-2" class="m-b-3">
+                  <summary>
+                    <h3>Metodología</h3>
+                    <span class="arrow">
+                      <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-vubbuv" focusable="false"
+                        fill="currentColor" aria-hidden="true" viewBox="0 0 24 24" data-testid="KeyboardArrowDownIcon">
+                        <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"></path>
+                      </svg>
+                    </span>
+                  </summary>
+                  <div class="content p-y-2">
+                    <p class="m-b-2">${curso.Metodologia}</p>
+                  </div>
+                </details>
                 <details name="accordion-group-2" class="m-b-2">
                   <summary>
                     <h3>Aportes al proyecto integrador</h3>
@@ -132,7 +148,7 @@ function createLabel(Id, curso) {
   let labelId = Id + 1;
   let labelElement = `
     <label for="tab${labelId}" class="border">
-                <h5 class="number obl m-0">${labelId}</h5>
+                <h5 class="number ${curso.Requisito} m-0">${curso.Orden}</h5>
                 <p>${curso.Nombre}</p>
                 <div class="actions">
                   <span class="ca">
