@@ -74,7 +74,7 @@ function createContent(Id, curso) {
               <h2 class="icon left m-b-2"><img src="img/icons/icon-obtiene.png" alt=""> Descripción</h2>
               <p class="m-b-2">${curso.Descripcion}</p>
               <p ><strong>Nivel: </strong>${curso.Nivel}</p>
-              <p class="m-b-2"><strong>Prerequisito: </strong>${curso.Prerequisito}</p>
+              <p class="m-b-2"><strong>Prerrequisito: </strong>${curso.Prerequisito}</p>
               <div class="metadata">
                 <div class="metadata-item ">
                   <div class="credits border">
